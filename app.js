@@ -57,7 +57,7 @@ function rollDice(diceRoll)
 let diceTotal = 0
 let diceRoll = 0
 let actualRoll = 0
-const diceTarget = prompt("Please Enter how many points to win:")
+let diceTarget = prompt("Please Enter how many points to win:")
 
 useKey.addEventListener("click", () => {
 
@@ -82,7 +82,4 @@ useKey.addEventListener("click", () => {
         diceNumber.textContent = 0
 
     }
-
-
-20
 })
