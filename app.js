@@ -19,7 +19,7 @@ function rollDice(diceRoll)
         if (diceRoll == 1)
         {
             document.getElementById("diceImage").src = imageSource[0]
-            // alert("You have rolled a 1, you lost")
+
         }
         if (diceRoll == 2)
         {
@@ -48,6 +48,7 @@ function rollDice(diceRoll)
         //     alert("You have won the game")
         //     return diceRoll
         // }
+        console.log(diceRoll)
         return diceRoll
 
 }
@@ -56,20 +57,32 @@ function rollDice(diceRoll)
 let diceTotal = 0
 let diceRoll = 0
 let actualRoll = 0
-const diceTarget = 20
+const diceTarget = prompt("Please Enter how many points to win:")
 
 useKey.addEventListener("click", () => {
 
-    diceTotal += rollDice(diceRoll)
-    diceNumber.textContent = diceTotal
-    
+    actualRoll = rollDice(diceRoll)
 
-    if (diceTotal >= diceTarget)
+
+    if (diceTotal <= diceTarget)
+    {
+        diceTotal += actualRoll
+        diceNumber.textContent = diceTotal
+    }
+    if (diceTotal > diceTarget)
     {
         alert(`You have ${diceTotal} points, you win`)
         diceTotal = 0
+        diceNumber.textContent = diceTotal
+    }
+    else if (actualRoll == 1)
+    {
+        alert("You have rolled a 1, you lost")
+        diceTotal = 0
+        diceNumber.textContent = 0
+
     }
 
 
-
+20
 })
