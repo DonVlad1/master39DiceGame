@@ -10,10 +10,12 @@ const imageSource = ["./Dice/dice1.jpeg", "./Dice/dice2.jpeg", "./Dice/dice3.jpe
 function rollDice(diceRoll)
 {
 
+    let failRoll = false
+    let targetRoll = 20
 
 
+        diceRoll = Math.ceil(Math.random() * 6)
 
-    diceRoll = Math.ceil(Math.random() * 6)
         if (diceRoll == 1)
         {
             document.getElementById("diceImage").src = imageSource[0]
@@ -39,34 +41,35 @@ function rollDice(diceRoll)
         {
             document.getElementById("diceImage").src = imageSource[5]
         }
+
+        // if (diceTotal >= targetRoll)
+        // {
+        //     failRoll = true
+        //     alert("You have won the game")
+        //     return diceRoll
+        // }
         return diceRoll
-  
+
+}
+
+
+let diceTotal = 0
+let diceRoll = 0
+let actualRoll = 0
+const diceTarget = 20
+
+useKey.addEventListener("click", () => {
+
+    diceTotal += rollDice(diceRoll)
+    diceNumber.textContent = diceTotal
+    
+
+    if (diceTotal >= diceTarget)
+    {
+        alert(`You have ${diceTotal} points, you win`)
+        diceTotal = 0
     }
 
 
 
-useKey.addEventListener("click", () => {
-    let diceRoll = 0
-    let diceTotal = 0
-    // let failRoll = false
-    // let targetRoll = 20
-
-    diceNumber.textContent = rollDice(diceRoll)
-    console.log(diceTotal)
-
-
-
-    // if (diceTotal >= targetRoll)
-    // {
-    //     alert("You have won the game")
-    // }
 })
-
-
-
-
-
-
-
-
-
